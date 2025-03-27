@@ -46,33 +46,6 @@ export async function gePatientById(userID: string, professionalId: string) {
   }
 }
 
-export async function getPatientByProfessionnal() {
-  const session = await auth();
-  if (!session?.user) {
-    return null;
-  }
-  const datas = await prisma.patient.findMany({
-    where: {
-      professionalId: session.user.id as string,
-    },
-    select: {
-      address: true,
-      bloodGroup: true,
-      country: true,
-      createdAt: true,
-      currentMedications: true,
-      dateOfBirth: true,
-      emailAddress: true,
-      firstName: true,
-      ID: true,
-      lastName: true,
-      patientGender: true,
-      phoneNumber: true,
-      profession: true,
-    },
-  });
-  return datas;
-}
 export async function createSosUser(formData: FormData) {
   const session = await auth();
   if (!session) {
