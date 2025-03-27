@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("DATABASE_URL")
+//   directUrl = env("DIRECT_URL")
+// }
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Professional {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User[]
+}
+
+model User {
+  Id           String  @id @default(cuid())
+  firstName    String
+  lastName     String
+  age          String
+  poids        String
+  taille       String
+  phoneNumber  String  @unique
+  userId       String  @unique
+  gender       String
+  address      String?
+  emailAddress String? @unique
+  country      String
+  profession   String?
+
+  emergency_1_name   String
+  emergency_1_number String
+  emergency_2_name   String
+  emergency_2_number String
+
+  qr_code String?
+  profile String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Professional   Professional @relation(fields: [Professionalid], references: [id])
+  Professionalid String
+  viewTime       Int          @default(0)
+  alert Alert[]
+}
+
+model Alert {
+  id        String   @id @default(cuid())
+  isCheck   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  User      User     @relation(fields: [UserId], references: [userId])
+  UserId    String
+}
