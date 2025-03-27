@@ -176,7 +176,7 @@ const PatientInfo = async ({ params }: Props) => {
 
 
                   <div>
-                    <h3 className="font-medium">Date d'inscription</h3>
+                    <h3 className="font-medium">Date d&aposinscription</h3>
                     <p>
 
                       {`le ${user.createdAt.toLocaleString("fr", {
