@@ -1,9 +1,1 @@
-# DATABASE_URL="file:./dev.db"
-AUTH_SECRET="h7IE1W8Ut2mNCm3nVPJ4zfhlp8VsYDaCuXoL/wu/GM4=" # Added by `npx auth`. Read more: https://cli.authjs.dev
 
-# Connect to Supabase via connection pooling with Supavisor.
-DATABASE_URL="postgresql://postgres.nuhnptdorimguvurwbfe:t186wQgWr5BfcYOt@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
-
-# Direct connection to the database. Used for migrations.
-DIRECT_URL="postgresql://postgres.nuhnptdorimguvurwbfe:t186wQgWr5BfcYOt@aws-0-eu-central-1.pooler.supabase.com:5432/postgres"
-        
